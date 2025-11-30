@@ -12,4 +12,8 @@ export class CategoryService {
   create(dto: { name: string; parentId?: number | null }): Observable<Category> {
     return this.http.post<Category>(this.baseUrl, dto);
   }
+
+  delete(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}/${id}`);
+  }
 }
