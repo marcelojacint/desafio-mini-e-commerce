@@ -1,0 +1,15 @@
+header {
+  border-bottom: 1px solid #eee;
+}
+.navbar-brand {
+  font-weight: 600;
+  color: var(--brand-primary);
+}
+.btn-outline-primary {
+  border-color: var(--brand-accent);
+  color: var(--brand-accent);
+}
+.btn-outline-primary:hover {
+  background-color: var(--brand-accent);
+  color: #fff;
+}

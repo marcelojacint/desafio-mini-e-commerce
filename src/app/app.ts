@@ -1,12 +1,19 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Header } from './shared/header/header';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.html',
+  standalone: true,
+  imports: [RouterOutlet, Header],
+  template: `
+    <app-header></app-header>
+    <div class="container py-3">
+      <router-outlet></router-outlet>
+    </div>
+  `,
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('mini-e-commerce');
+  protected readonly title = signal('mini-ecommerce');
 }
