@@ -5,6 +5,10 @@ import { Category } from '../models/product';
 
 @Injectable({ providedIn: 'root' })
 export class CategoryService {
+  
+   getAll(): Observable<Category[]> {
+    return this.http.get<Category[]>(this.baseUrl);
+  }
 
   private readonly http = inject(HttpClient);
   private readonly baseUrl = 'http://localhost:8080/categories';
@@ -16,4 +20,6 @@ export class CategoryService {
   delete(id: number): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}/${id}`);
   }
+
+ 
 }

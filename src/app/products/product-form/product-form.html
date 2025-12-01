@@ -1,0 +1,42 @@
+<section class="form container mt-4">
+  <h2 class="mb-3">Novo Produto</h2>
+
+    <div *ngIf="message" class="alert alert-info">
+    {{ message }}
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="save()" class="row g-3">
+
+    <div class="col-12">
+      <label class="form-label">Nome do Produto</label>
+      <input type="text" class="form-control" formControlName="name" />
+    </div>
+
+    <div class="col-md-6">
+      <label class="form-label">Preço</label>
+      <input type="number" step="0.01" class="form-control" formControlName="price" />
+    </div>
+
+    <div class="col-md-6">
+      <label class="form-label">Código de Barras</label>
+      <input type="text" class="form-control" formControlName="barcode" />
+    </div>
+
+    <div class="col-md-6">
+      <label class="form-label">Categoria</label>
+      <select class="form-select" formControlName="categoryId">
+        <option [ngValue]="null">Selecione...</option>
+        <option *ngFor="let c of categories" [ngValue]="c.id">
+          {{ c.name }}
+        </option>
+      </select>
+    </div>
+
+    <div class="col-12">
+      <button type="submit" class="btn btn-success" [disabled]="form.invalid">
+        Salvar
+      </button>
+    </div>
+
+  </form>
+</section>

@@ -9,4 +9,8 @@ import { CommonModule } from '@angular/common';
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
-export class Header {}
+export class Header {
+count() {
+throw new Error('Method not implemented.');
+}
+}
