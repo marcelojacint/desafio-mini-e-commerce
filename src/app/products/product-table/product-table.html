@@ -1,0 +1,24 @@
+<table class="table table-striped table-hover table-sm">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Preço</th>
+      <th>Cód. Barras</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (p of products; track p.id) {
+      <tr>
+        <td>{{ p.name }}</td>
+        <td>{{ p.price | currency:'BRL':'symbol':'1.2-2' }}</td>
+        <td>{{ p.barcode }}</td>
+        <td class="actions">
+          <button type="button" class="btn btn-outline-secondary btn-sm" (click)="edit.emit(p)">Editar</button>
+          <button type="button" class="btn btn-outline-danger btn-sm" (click)="delete.emit(p)">Excluir</button>
+          <button type="button" class="btn btn-primary btn-sm" (click)="addToCart.emit(p)">Adicionar ao Carrinho</button>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>

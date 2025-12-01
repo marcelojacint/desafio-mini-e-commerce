@@ -1,0 +1,15 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th, td {
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+}
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+.table tbody tr:hover {
+  background-color: rgba(13, 110, 253, 0.05);
+}

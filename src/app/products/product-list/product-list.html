@@ -1,0 +1,8 @@
+<section class="list container mt-4">
+  <app-product-table
+    [products]="products"
+    (edit)="onEdit($event)"
+    (delete)="onDelete($event)"
+    (addToCart)="onAddToCart($event)"
+  />
+</section>
