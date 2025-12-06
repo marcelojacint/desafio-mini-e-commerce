@@ -5,6 +5,7 @@ import { ProductForm } from './products/product-form/product-form';
 import { CategoryCreate } from './categories/category-create/category-create';
 import { ProductListComponent } from './products/product-list/product-list';
 import { ProductUpdateComponent } from './products/product-update/product-update';
+import { ProductDelete } from './products/product-delete/product-delete';
 
 export const routes: Routes = [
 
@@ -21,6 +22,7 @@ export const routes: Routes = [
             { path: 'new', component: ProductForm },
             { path: 'update', component: ProductUpdateComponent },
             { path: ':id/edit', component: ProductUpdateComponent }
+            ,{ path: 'delete', component: ProductDelete }
         
 
     ]},
