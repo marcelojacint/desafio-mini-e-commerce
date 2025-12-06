@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';  
 import { CommonModule } from '@angular/common';
+import { CartService } from '../../core/services/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,6 @@ import { CommonModule } from '@angular/common';
   styleUrl: './header.css',
 })
 export class Header {
-count() {
-throw new Error('Method not implemented.');
-}
+  private readonly cart = inject(CartService);
+  readonly count = this.cart.count;
 }
