@@ -11,6 +11,23 @@
       <li class="nav-item">
         <button class="btn btn-secondary btn-sm me-2" routerLink="/products/new">Novo Produto</button>
       </li>
+      <li class="nav-item">
+        <button class="btn btn-secondary btn-sm me-2" routerLink="/products/cards">Ver Produtos</button>
+      </li>
+      <li class="nav-item">
+        <button class="btn btn-secondary btn-sm me-2" routerLink="/products/update">Atualizar Produtos</button>
+      </li>
+      <li class="nav-item">
+        <button class="btn btn-secondary btn-sm me-2" routerLink="/products/delete">Excluir Produto</button>
+      </li>
+    </ul>
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item">
+        <a class="btn btn-warning btn-sm" routerLink="/cart">
+          Carrinho
+          <span class="badge rounded-pill text-bg-danger ms-2">{{ count() }}</span>
+        </a>
+      </li>
     </ul>
   </nav>
 </header>

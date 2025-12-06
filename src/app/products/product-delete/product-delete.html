@@ -1,0 +1,16 @@
+<section class="container mt-4">
+  <h2 class="mb-3">Excluir Produto</h2>
+  <form [formGroup]="form" (ngSubmit)="submit()" class="row g-3">
+    <div class="col-md-6">
+      <label class="form-label">ID</label>
+      <input type="number" class="form-control" formControlName="id" />
+    </div>
+    <div class="col-12">
+      <button class="btn btn-danger" type="submit" [disabled]="form.invalid">Excluir</button>
+    </div>
+  </form>
+  @if (message) {
+    <div class="alert alert-info mt-3">{{ message }}</div>
+  }
+</section>
+

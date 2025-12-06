@@ -15,7 +15,7 @@
   </ul>
   <div class="total mt-3 alert alert-success">Total: <strong>{{ total() | currency:'BRL' }}</strong></div>
   <div class="d-flex gap-2">
-    <a class="btn btn-outline-secondary" routerLink="/products">Continuar comprando</a>
+    <a class="btn btn-outline-secondary" routerLink="/products/cards">Continuar comprando</a>
     <button class="btn btn-outline-danger" type="button" (click)="clear()" [disabled]="items().length === 0">Limpar carrinho</button>
   </div>
 </section>

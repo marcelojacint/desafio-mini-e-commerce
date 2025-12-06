@@ -1,8 +1,22 @@
 <section class="list container mt-4">
-  <app-product-table
-    [products]="products"
-    (edit)="onEdit($event)"
-    (delete)="onDelete($event)"
-    (addToCart)="onAddToCart($event)"
-  />
+  <h2 class="mb-3">Produtos</h2>
+
+  <div class="row row-cols-1 row-cols-md-3 g-3">
+    @for (p of products; track p.id) {
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">{{ p.name }}</h5>
+            <p class="card-text">Cód. Barras: {{ p.barcode }}</p>
+            <p class="card-text fw-semibold">{{ p.price | currency:'BRL':'symbol' }}</p>
+          </div>
+          <div class="card-footer d-flex gap-2">
+            <button type="button" class="btn btn-primary btn-sm" (click)="onAddToCart(p)">Adicionar ao Carrinho</button>
+            <button type="button" class="btn btn-outline-secondary btn-sm" (click)="onEdit(p)">Editar</button>
+            <button type="button" class="btn btn-outline-danger btn-sm" (click)="onDelete(p)">Excluir</button>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
 </section>
