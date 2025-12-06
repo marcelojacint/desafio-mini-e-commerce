@@ -23,6 +23,10 @@ export class ProductService {
     return this.http.get<Product[]>(this.baseUrl);
   }
 
+  getById(id: number): Observable<Product> {
+    return this.http.get<Product>(`${this.baseUrl}/${id}`);
+  }
+
   update(product: { id: number; name: string; price: number; barcode: string; categoryId: number }): Observable<Product | null> {
     const payload: Partial<Product> = {
       id: product.id,
