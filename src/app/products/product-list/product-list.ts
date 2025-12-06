@@ -2,13 +2,13 @@ import { ProductService } from '../../core/services/product.service';
 import { Product } from '../../core/models/product';
 
 import { Router } from '@angular/router';
-import { ProductTable } from '../product-table/product-table';
 import { Component, inject } from '@angular/core';
 import { CartService } from '../../core/services/cart.service';
+import { CommonModule, CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-product-list',
-  imports: [ProductTable],
+  imports: [CommonModule, CurrencyPipe],
   templateUrl: './product-list.html',
   styleUrl: './product-list.css'
 })
