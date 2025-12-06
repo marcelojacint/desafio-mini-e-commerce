@@ -1,0 +1,16 @@
+<section class="container mt-4">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let p of products; trackBy: trackById">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{ p.name }}</h5>
+          <p class="card-text mb-1">{{ p.price | currency:'BRL' }}</p>
+          <small class="text-muted">Cód. Barras: {{ p.barcode }}</small>
+        </div>
+        <div class="card-footer bg-transparent border-0 d-flex justify-content-end">
+          <button class="btn btn-primary btn-sm" type="button" (click)="addToCart(p)">Adicionar ao Carrinho</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
