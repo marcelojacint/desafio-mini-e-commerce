@@ -1,0 +1,7 @@
+.card-title {
+  color: var(--brand-primary);
+}
+.card:hover {
+  transform: translateY(-2px);
+  transition: transform 200ms ease;
+}
