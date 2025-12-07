@@ -1,59 +1,64 @@
-# MiniECommerce
+# Mini E-Commerce
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.1.
+Aplicação frontend em Angular para um mini e-commerce com cadastro, listagem e gerenciamento de produtos e categorias, incluindo carrinho com persistência em `localStorage`.
 
-## Development server
+## Arquitetura
+- Framework: Angular 21 (Standalone Components)
+- Estilo: Bootstrap 5 + estilos globais (`src/styles.css`)
+- Roteamento: `src/app/app.routes.ts` com páginas para produtos, categorias e carrinho
+- Serviços (HTTP): `src/app/core/services/*` consumindo API externa (`http://localhost:8080`)
+- Domínios:
+  - Produtos: listagem em cards, criação e atualização
+  - Categorias: criação e exclusão
+  - Carrinho: adicionar itens, remover, limpar com confirmação, persistência em `localStorage`
+- Componentes compartilhados: `src/app/shared/header` com navegação entre páginas
 
-To start a local development server, run:
+## Pré-requisitos
+- Node.js 18+ (recomendado 20+)
+- NPM (vem com Node)
+- Backend/API rodando em `http://localhost:8080`
+  - Base URL de produtos: `http://localhost:8080/products` (configurada em `src/app/core/services/product.service.ts:9`)
 
+## Clonar, instalar e rodar
 ```bash
-ng serve
+# Clonar o repositório
+git clone https://github.com/<seu-usuario>/<seu-repo>.git
+cd <seu-repo>
+
+# Instalar dependências
+npm install
+
+# Rodar em desenvolvimento (http://localhost:4200)
+npm start
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Scripts úteis
+- `npm start` → inicia o servidor de desenvolvimento
+- `npm run build` → gera o build de produção em `dist/mini-e-commerce`
+- `npm test` → executa a suíte de testes (se aplicável)
 
-## Code scaffolding
+## Configuração da API
+- A base da API de produtos está definida em `src/app/core/services/product.service.ts:9`.
+- Ajuste se necessário para seu ambiente (ex.: alterar host/porta).
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+## Estrutura de diretórios (parcial)
 ```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
+src/
+  app/
+    core/
+      models/
+      services/
+    products/
+      product-list/
+      product-form/
+      product-update/
+      product-delete/
+    categories/
+      category-create/
+      category-delete/
+    cart/
+      cart-page/
+    shared/
+      header/
+  styles.css
 ```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
