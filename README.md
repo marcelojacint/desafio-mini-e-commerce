@@ -62,3 +62,42 @@ src/
       header/
   styles.css
 ```
+
+## Testes
+### Tecnologias
+- Runner integrado do Angular 21 com Vitest
+- Ambiente `jsdom`
+- Mocks com `vi`, `HttpClientTestingModule` para HTTP, `RouterTestingModule` para rotas
+
+### Dependências para testes
+- Já inclusas no projeto:
+  - `vitest`, `@vitest/coverage-v8`, `jsdom`
+  - `@angular/platform-browser-dynamic` (necessário para inicializar `TestBed` quando usando Vitest)
+- Arquivos de suporte:
+  - `vitest.config.ts` (configura cobertura HTML/LCOV em `coverage/mini-e-commerce`)
+  - `src/test-setup.ts` (inicializa `TestBed`)
+
+### Como rodar testes
+- Modo padrão (Angular runner, watch):
+  - `npm test`
+  - Mostra total de testes/arquivos passando
+- Cobertura (Vitest, serviços):
+  - `npx vitest run --coverage`
+  - Abrir relatório: `coverage/mini-e-commerce/index.html`
+
+### Cobertura atual
+- Serviços cobertos com relatório HTML/LCOV:
+  - `ProductService`: 100%
+  - `CartService`: ~97% linhas (um caminho não utilizado)
+- Testes de componentes rodam com `npm test` e estão 100% verdes, mas a cobertura HTML via Vitest está focada em serviços por padrão.
+
+### Escopo dos testes
+- `ProductService`: `getAll`, `getById`, `create`, `update`, `delete` e validação de URLs/payloads
+- `CartService`: `add`, `remove`, `clear`, `total`, persistência/restore via `localStorage`
+- `ProductForm`: inválido → mensagem; sucesso → mensagem e reset
+- `ProductUpdate`: erro de `getById` → “Product not found.”
+- `CartPageComponent`: remove item; limpar carrinho com confirmação
+- `ProductListComponent`: “Add to Cart” chama `CartService.add(...)`
+- `CategoryCreate`: inválido/sucesso/erro com mensagens
+- `Header`: badge de contagem do carrinho
+- `App`: criação e título na navbar
