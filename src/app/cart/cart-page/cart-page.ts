@@ -1,11 +1,12 @@
 import { Component, computed, inject } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
 import { CartService } from '../../core/services/cart.service';
+import { RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-cart-page',
-  imports: [CurrencyPipe],
+  imports: [CurrencyPipe, RouterLink],
   templateUrl: './cart-page.html',
   styleUrl: './cart-page.css'
 })
