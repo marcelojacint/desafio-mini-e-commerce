@@ -1,6 +1,7 @@
 .hero {
   min-height: 60vh;
   background: linear-gradient(135deg, #1d9ae2, #b6adb2); 
+  background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
   background-size: 200% 200%;
   animation: gradient-move 8s ease infinite;
   color: #fff;
