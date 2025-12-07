@@ -23,12 +23,11 @@ export class ProductDelete {
     const id = Number(this.form.value.id!);
     this.service.delete(id).subscribe({
       next: () => {
-        this.message = 'Produto excluído com sucesso.';
+        this.message = 'Product deleted successfully.';
       },
       error: () => {
-        this.message = 'Erro ao excluir produto.';
+        this.message = 'Error while deleting product.';
       }
     });
   }
 }
-

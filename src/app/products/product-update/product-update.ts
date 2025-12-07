@@ -49,14 +49,14 @@ export class ProductUpdateComponent {
         this.message = null;
       },
       error: () => {
-        this.message = 'Produto não encontrado.';
+        this.message = 'Product not found.';
       }
     });
   }
 
   save(): void {
     if (this.form.invalid) {
-      this.message = 'Preencha todos os campos obrigatórios.';
+      this.message = 'Please fill all required fields.';
       return;
     }
 
@@ -72,10 +72,10 @@ export class ProductUpdateComponent {
 
     this.productService.update(payload).subscribe({
       next: () => {
-        this.message = 'Produto atualizado com sucesso.';
+        this.message = 'Product updated successfully.';
       },
       error: () => {
-        this.message = 'Erro ao atualizar produto.';
+        this.message = 'Error while updating product.';
       }
     });
   }

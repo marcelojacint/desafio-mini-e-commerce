@@ -23,10 +23,10 @@ export class CategoryDelete {
     const id = Number(this.form.value.id!);
     this.service.delete(id).subscribe({
       next: () => {
-        this.message = 'Categoria excluída com sucesso.';
+        this.message = 'Category deleted successfully.';
       },
       error: () => {
-        this.message = 'Erro ao excluir categoria.';
+        this.message = 'Error while deleting category.';
       }
     });
   }

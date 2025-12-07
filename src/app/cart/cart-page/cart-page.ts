@@ -19,7 +19,7 @@ export class CartPageComponent {
   }
 
   clear(): void {
-    const ok = typeof window !== 'undefined' ? window.confirm('Deseja realmente limpar o carrinho?') : true;
+    const ok = typeof window !== 'undefined' ? window.confirm('Are you sure you want to clear the cart?') : true;
     if (ok) {
       this.cart.clear();
     }

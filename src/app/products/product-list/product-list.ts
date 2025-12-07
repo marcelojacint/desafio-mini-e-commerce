@@ -1,7 +1,6 @@
 import { ProductService } from '../../core/services/product.service';
 import { Product } from '../../core/models/product';
 
-import { Router } from '@angular/router';
 import { Component, inject } from '@angular/core';
 import { CartService } from '../../core/services/cart.service';
 import { CommonModule, CurrencyPipe } from '@angular/common';
@@ -14,7 +13,6 @@ import { CommonModule, CurrencyPipe } from '@angular/common';
 })
 export class ProductListComponent {
   private readonly service = inject(ProductService);
-  private readonly router = inject(Router);
   private readonly cart = inject(CartService);
 
   products: Product[] = [];
@@ -35,14 +33,6 @@ export class ProductListComponent {
         this.loading = false;
       }
     });
-  }
-
-  onEdit(p: Product): void {
-    this.router.navigate(['/products', p.id, 'edit']);
-  }
-
-  onDelete(p: Product): void {
-    this.service.delete(p.id).subscribe({ next: () => this.load() });
   }
 
   onAddToCart(p: Product): void {
